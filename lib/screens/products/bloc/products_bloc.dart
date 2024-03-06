@@ -12,7 +12,6 @@ class ProductsBloc extends Bloc<ProductLoadedEvent, ProductsState> {
       try {
         emit(ProductsLoadingState());
         var data = await productsRepo.getProducts();
-        print(data);
         emit (ProductsLoadedState(data));
       } catch (e) {
         emit(ProductsErrorState('Failed to load products ${e.toString()}'));        
